@@ -42,17 +42,13 @@ const getRandomPositiveInteger = (a, b) => {
   return Math.floor(result);
 };
 
-const getRandomArrayElement = (elements) => {
-  return elements[getRandomPositiveInteger(0, elements.length - 1)];
-};
+const getRandomArrayElement = (elements) => elements[getRandomPositiveInteger(0, elements.length - 1)];
 
-const createWizard = () => {
-  return {
-    name: getRandomArrayElement(NAMES) + ' ' + getRandomArrayElement(SURNAMES),
-    coatColor: getRandomArrayElement(COAT_COLORS),
-    eyesColor: getRandomArrayElement(EYES_COLORS),
-  };
-};
+const createWizard = () => ({
+  name: `${getRandomArrayElement(NAMES)} ${getRandomArrayElement(SURNAMES)}`,
+  coatColor: getRandomArrayElement(COAT_COLORS),
+  eyesColor: getRandomArrayElement(EYES_COLORS),
+});
 
 const similarWizards = Array.from({length: SIMILAR_WIZARD_COUNT}, createWizard);
 
