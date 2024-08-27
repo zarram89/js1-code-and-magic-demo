@@ -1,11 +1,12 @@
 import {isEscapeKey, isEnterKey} from './util.js';
-import { renderSimilarList, clearSimilarList } from './similar-list.js';
+import {renderSimilarList, clearSimilarList} from './similar-list.js';
+import './user-form.js';
 
 const userModalElement = document.querySelector('.setup');
 const userModalOpenElement = document.querySelector('.setup-open');
 const userModalCloseElement = userModalElement.querySelector('.setup-close');
 
-const onPopupEscKeyDown = (evt) => {
+const onPopupEscKeydown = (evt) => {
   if (isEscapeKey(evt)) {
     evt.preventDefault();
     closeUserModal();
@@ -16,14 +17,14 @@ function openUserModal () {
   userModalElement.classList.remove('hidden');
   renderSimilarList();
 
-  document.addEventListener('keydown', onPopupEscKeyDown);
+  document.addEventListener('keydown', onPopupEscKeydown);
 }
 
 function closeUserModal () {
   userModalElement.classList.add('hidden');
   clearSimilarList();
 
-  document.removeEventListener('keydown', onPopupEscKeyDown);
+  document.removeEventListener('keydown', onPopupEscKeydown);
 }
 
 userModalOpenElement.addEventListener('click', () => {
@@ -45,3 +46,5 @@ userModalCloseElement.addEventListener('keydown', (evt) => {
     closeUserModal();
   }
 });
+
+openUserModal();
