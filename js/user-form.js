@@ -1,24 +1,5 @@
 import {getRandomArrayElement} from './util.js';
 
-const form = document.querySelector('.setup-wizard-form');
-
-const pristine = new Pristine(form, {
-  classTo: 'setup-wizard-form__element',
-  errorTextParent: 'setup-wizard-form__element',
-  errorTextClass: 'setup-wizard-form__error-text',
-});
-
-form.addEventListener('submit', (evt) => {
-  evt.preventDefault();
-
-  const isValid = pristine.validate();
-  if (isValid) {
-    console.log('Можно отправлять');
-  } else {
-    console.log('Форма невалидна');
-  }
-});
-
 const Color = {
   FIREBALLS: [
     '#ee4830',
@@ -68,4 +49,21 @@ coatColorElement.addEventListener('click', (evt) => {
   const randomColor = getRandomArrayElement(Color.COATS);
   evt.target.style.fill = randomColor;
   coatColorInput.value = randomColor;
+});
+
+const pristine = new Pristine(wizardForm, {
+  classTo: 'setup-wizard-form__element',
+  errorTextParent: 'setup-wizard-form__element',
+  errorTextClass: 'setup-wizard-form__error-text',
+});
+
+wizardForm.addEventListener('submit', (evt) => {
+  evt.preventDefault();
+
+  const isValid = pristine.validate();
+  if (isValid) {
+    console.log('Можно отправлять');
+  } else {
+    console.log('Форма невалидна');
+  }
 });
