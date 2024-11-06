@@ -7,11 +7,11 @@ const similarWizardTemplate = document.querySelector('#similar-wizard-template')
 const renderSimilarList = (similarWizards) => {
   const similarListFragment = document.createDocumentFragment();
 
-  similarWizards.forEach(({name, coatColor, eyesColor}) => {
+  similarWizards.forEach(({name, colorCoat, colorEyes}) => {
     const wizardElement = similarWizardTemplate.cloneNode(true);
     wizardElement.querySelector('.setup-similar-label').textContent = name;
-    wizardElement.querySelector('.wizard-coat').style.fill = coatColor;
-    wizardElement.querySelector('.wizard-eyes').style.fill = eyesColor;
+    wizardElement.querySelector('.wizard-coat').style.fill = colorCoat;
+    wizardElement.querySelector('.wizard-eyes').style.fill = colorEyes;
     similarListFragment.appendChild(wizardElement);
   });
 
