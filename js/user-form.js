@@ -1,4 +1,4 @@
-import {getRandomArrayElement} from './util.js';
+import {showAlert, getRandomArrayElement} from './util.js';
 
 const Color = {
   FIREBALLS: [
@@ -57,13 +57,30 @@ const pristine = new Pristine(wizardForm, {
   errorTextClass: 'setup-wizard-form__error-text',
 });
 
-wizardForm.addEventListener('submit', (evt) => {
-  evt.preventDefault();
+const setUserFormSubmit = (onSuccess) => {
+  wizardForm.addEventListener('submit', (evt) => {
+    evt.preventDefault();
 
-  const isValid = pristine.validate();
-  if (isValid) {
-    console.log('Можно отправлять');
-  } else {
-    console.log('Форма невалидна');
-  }
-});
+    const isValid = pristine.validate();
+    if (isValid) {
+      const formData = new FormData(evt.target);
+
+      fetch('https://32.javascript.htmlacademy.pro/code-and-magick',
+        {
+          method: 'POST',
+          body: formData,
+        }
+      )
+        .then((response) => {
+          if (response.ok) {
+            onSuccess();
+          } else {
+            showAlert('Не удалось отправить форму. Попробуйте ещё раз');
+          }
+        })
+        .catch(() => showAlert('Не удалось отправить форму. Попробуйте ещё раз'));
+    }
+  });
+};
+
+export {setUserFormSubmit};

@@ -1,16 +1,10 @@
-import {createWizards} from './data.js';
-
 const similarElement = document.querySelector('.setup-similar');
-similarElement.classList.remove('hidden');
-
 const similarListElement = similarElement.querySelector('.setup-similar-list');
 const similarWizardTemplate = document.querySelector('#similar-wizard-template')
   .content
   .querySelector('.setup-similar-item');
 
-const similarWizards = createWizards();
-
-const renderSimilarList = () => {
+const renderSimilarList = (similarWizards) => {
   const similarListFragment = document.createDocumentFragment();
 
   similarWizards.forEach(({name, coatColor, eyesColor}) => {
@@ -22,6 +16,7 @@ const renderSimilarList = () => {
   });
 
   similarListElement.appendChild(similarListFragment);
+  similarElement.classList.remove('hidden');
 };
 
 const clearSimilarList = () => {
