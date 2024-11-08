@@ -1,4 +1,3 @@
-/* global Pristine:readonly */
 import {showAlert, getRandomArrayElement} from './util.js';
 import {sendData} from './api.js';
 
@@ -100,4 +99,8 @@ const setUserFormSubmit = (onSuccess) => {
   });
 };
 
-export {setUserFormSubmit, setEyesClick, setCoatClick};
+export {
+  setUserFormSubmit,
+  setEyesClick,
+  setCoatClick
+};

@@ -7,11 +7,14 @@ const getRandomPositiveInteger = (a, b) => {
   return Math.floor(result);
 };
 
-const getRandomArrayElement = (elements) => elements[getRandomPositiveInteger(0, elements.length - 1)];
+const getRandomArrayElement = (elements) =>
+  elements[getRandomPositiveInteger(0, elements.length - 1)];
 
-const isEscapeKey = (evt) => evt.key === 'Escape';
+const isEscapeKey = (evt) =>
+  evt.key === 'Escape';
 
-const isEnterKey = (evt) => evt.key === 'Enter';
+const isEnterKey = (evt) =>
+  evt.key === 'Enter';
 
 const showAlert = (message) => {
   const alertContainer = document.createElement('div');
@@ -34,4 +37,18 @@ const showAlert = (message) => {
   }, ALERT_SHOW_TIME);
 };
 
-export {getRandomArrayElement, isEscapeKey, isEnterKey, showAlert};
+const debounce = (callback, timeoutDelay) => {
+  let timeoutId;
+  return (...rest) => {
+    clearTimeout(timeoutId);
+    timeoutId = setTimeout(() => callback.apply(this, rest), timeoutDelay);
+  };
+};
+
+export {
+  getRandomArrayElement,
+  isEscapeKey,
+  isEnterKey,
+  showAlert,
+  debounce
+};

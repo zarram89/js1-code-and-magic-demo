@@ -41,4 +41,7 @@ userModalCloseElement.addEventListener('keydown', (evt) => {
   }
 });
 
-export {openUserModal, closeUserModal};
+export {
+  openUserModal,
+  closeUserModal
+};
