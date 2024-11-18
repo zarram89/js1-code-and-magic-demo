@@ -39,16 +39,14 @@ const EYES_COLORS = [
   'green',
 ];
 
-
 const SIMILAR_WIZARD_COUNT = 4;
 
 const createWizard = () => ({
-  name: `${getRandomArrayElement(NAMES)} ${getRandomArrayElement(SURNAMES)}`,
+  name: `${getRandomArrayElement(NAMES) } ${ getRandomArrayElement(SURNAMES)}`,
   coatColor: getRandomArrayElement(COAT_COLORS),
   eyesColor: getRandomArrayElement(EYES_COLORS),
 });
 
-const createWizards = () =>
-  Array.from({length: SIMILAR_WIZARD_COUNT}, createWizard);
+const createWizards = () => Array.from({length: SIMILAR_WIZARD_COUNT}, createWizard);
 
 export {createWizards};
