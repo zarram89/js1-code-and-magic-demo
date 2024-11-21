@@ -45,10 +45,4 @@ const debounce = (callback, timeoutDelay) => {
   };
 };
 
-export {
-  getRandomArrayElement,
-  isEscapeKey,
-  isEnterKey,
-  showAlert,
-  debounce
-};
+export { getRandomArrayElement, isEscapeKey, isEnterKey, showAlert, debounce };

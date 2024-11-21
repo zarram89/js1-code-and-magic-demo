@@ -30,10 +30,7 @@ const clearSimilarList = () => {
   similarListElement.innerHTML = '';
 };
 
-export {
-  renderSimilarList,
-  clearSimilarList,
-};
+export { renderSimilarList, clearSimilarList };
 
 // const SIMILAR_WIZARD_COUNT = 4;
 // const Default = {
