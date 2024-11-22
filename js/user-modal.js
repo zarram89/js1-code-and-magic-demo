@@ -47,7 +47,6 @@ userModalCloseElement.addEventListener('keydown', (evt) => {
   }
 });
 
-
 // import {isEscapeKey, isEnterKey} from './util.js';
 
 // const userModalElement = document.querySelector('.setup');
