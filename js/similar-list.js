@@ -26,7 +26,7 @@ const getWizardRank = (wizard) => {
   return rank;
 };
 
-const compareWizards = (wizardA, wizardB) => {
+const sortWizards = (wizardA, wizardB) => {
   const rankA = getWizardRank(wizardA);
   const rankB = getWizardRank(wizardB);
 
@@ -38,7 +38,7 @@ const renderSimilarList = (similarWizards) => {
 
   similarWizards
     .slice()
-    .sort(compareWizards)
+    .sort(sortWizards)
     .slice(0, SIMILAR_WIZARD_COUNT)
     .forEach(({name, colorCoat, colorEyes}) => {
       const wizardElement = similarWizardTemplate.cloneNode(true);
@@ -53,4 +53,4 @@ const renderSimilarList = (similarWizards) => {
   similarElement.classList.remove('hidden');
 };
 
-export { renderSimilarList };
+export {renderSimilarList};

@@ -1,20 +1,17 @@
 const ALERT_SHOW_TIME = 5000;
 
-const getRandomPositiveInteger = (a, b) => {
-  const lower = Math.ceil(Math.min(Math.abs(a), Math.abs(b)));
-  const upper = Math.floor(Math.max(Math.abs(a), Math.abs(b)));
+const getRandomInteger = (a, b) => {
+  const lower = Math.ceil(Math.min(a, b));
+  const upper = Math.floor(Math.max(a, b));
   const result = Math.random() * (upper - lower + 1) + lower;
   return Math.floor(result);
 };
 
-const getRandomArrayElement = (elements) =>
-  elements[getRandomPositiveInteger(0, elements.length - 1)];
+const getRandomArrayElement = (elements) => elements[getRandomInteger(0, elements.length - 1)];
 
-const isEscapeKey = (evt) =>
-  evt.key === 'Escape';
+const isEscapeKey = (evt) => evt.key === 'Escape';
 
-const isEnterKey = (evt) =>
-  evt.key === 'Enter';
+const isEnterKey = (evt) => evt.key === 'Enter';
 
 const showAlert = (message) => {
   const alertContainer = document.createElement('div');
@@ -45,4 +42,4 @@ const debounce = (callback, timeoutDelay) => {
   };
 };
 
-export { getRandomArrayElement, isEscapeKey, isEnterKey, showAlert, debounce };
+export {getRandomArrayElement, isEscapeKey, isEnterKey, showAlert, debounce};
